@@ -10,7 +10,7 @@ export default defineConfig({
     ['list']
   ],
   use: {
-    baseURL: process.env.BASE_URL,
+    baseURL: process.env.HUB_LEITURA_BASE_URL || process.env.BASE_URL,
     screenshot: 'only-on-failure',
     video: 'retain-on-failure',
   },

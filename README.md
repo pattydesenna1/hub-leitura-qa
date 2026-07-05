@@ -1,32 +1,63 @@
 # Hub de Leitura QA
 
-## Sobre o Projeto
-Projeto de automação de testes E2E usando Playwright + MCP (Model Context Protocol) com IA (GitHub Copilot Agent).
+Projeto de automação de testes E2E para o site Hub de Leitura, utilizando Playwright, MCP (Model Context Protocol) e GitHub Copilot Agent para executar cenários reais de navegação, validação e geração de evidências.
 
-## Stack
+## Stack Utilizada
 - Playwright
 - @playwright/mcp
 - dotenv
 - GitHub Copilot Agent (modo Agent)
 
 ## Estrutura de Pastas
-- tests/e2e: testes end-to-end automatizados com Playwright
-- docs: documentação do projeto e regras de negócio
-- reports: relatórios e evidências geradas pelos testes
-- prompts: instruções e prompts utilizados para automação e integração com IA
+- tests/e2e: testes end-to-end automatizados
+- tests/helpers: funções utilitárias e helpers reutilizáveis
+- tests/_templates: modelos base para novos cenários
+- tests/evidencias/hub-leitura: screenshots e evidências geradas pelos testes
+- docs: documentação técnica e boas práticas
+- reports: relatórios HTML e demais saídas de execução
+- prompts: instruções e prompts utilizados para automação com IA
 
-## Como Rodar
-1. npm install
-2. npx playwright install chromium
-3. Copiar .env.example para .env e preencher
-4. npx playwright test
-5. npx playwright show-report reports
+## Como Instalar
+1. Clone o repositório
+2. Acesse a pasta do projeto
+3. Execute:
+   ```bash
+   npm install
+   npx playwright install chromium
+   ```
 
-## Configuração MCP
-O arquivo .vscode/mcp.json configura o servidor @playwright/mcp, que permite ao Copilot Agent controlar o browser para executar automações e validar cenários de forma interativa.
+## Como Rodar os Testes
+Execute:
+```bash
+npx playwright test
+```
 
-## Evidências
-Screenshot gerado automaticamente em reports/evidencia-home.png
+## Como Configurar o MCP
+O arquivo [.vscode/mcp.json](.vscode/mcp.json) configura o servidor @playwright/mcp, permitindo que o GitHub Copilot Agent controle o navegador para executar automações e validar cenários diretamente.
+
+## Como Configurar o .env
+Crie uma cópia do arquivo [.env.example](.env.example) com o nome .env e preencha as variáveis:
+
+```env
+HUB_LEITURA_BASE_URL=https://hub-de-leitura.vercel.app
+HUB_LEITURA_USER=seu-email@teste.com
+HUB_LEITURA_PASSWORD=sua-senha-aqui
+HUB_LEITURA_TIMEOUT=5000
+HUB_LEITURA_EVIDENCIAS_DIR=tests/evidencias/hub-leitura
+```
+
+## Como Ver o Relatório HTML
+Após executar os testes, visualize o relatório com:
+
+```bash
+npx playwright show-report reports
+```
+
+## Evidências Geradas Automaticamente
+Os testes geram screenshots e evidências automaticamente na pasta [tests/evidencias/hub-leitura](tests/evidencias/hub-leitura).
+
+## Documentação
+A documentação do projeto está disponível em [docs](docs).
 
 ## Autor
-Seu nome aqui
+Didimo
